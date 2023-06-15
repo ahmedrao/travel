@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+body {
+  position: relative;
+  min-height: 500vh;
+}
+
+img {
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  position: fixed;
+  margin-top: 40vh;
+}
+
+@media only screen and (max-width: 600px) {
+  img {
+    width: 100px;
+  }
+}
+
+	</style>
+</head>
+<body>
+	<img id="param" src="https://lh4.googleusercontent.com/proxy/di5djYWadC3uYV58EeImdFX1ucmEDzsUSBe2Tl59STgQeN5r8S8PvEn_rCjwPjxnLr9XU0NU6EtlYMg_VSbjhWhHjRoAwDMS1Z-AuCdO-TXIGQ=s0-d" alt="">
+	<script>
+		let p = document.getElementById("param");
+
+window.addEventListener(
+  "scroll",
+  () => {
+    const plane = document.body.offsetWidth - p.offsetWidth;
+    if (plane > this.scrollY) {
+      document.body.style = "background-color:#fff;";
+      p.style = `left:${this.scrollY}px; bottom:${this.scrollY / 5}px;`;
+    } else {
+      document.body.style = "background-color:red;";
+    }
+  },
+  false
+);
+
+	</script>
+</body>
+</html>
